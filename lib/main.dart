@@ -33,6 +33,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  //Initialization
   MainGame _mainGame = MainGame();
   int score = 0;
   @override
@@ -89,17 +90,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           if (_mainGame.matchCheck.length == 2) {
                             if (_mainGame.matchCheck[0].values.first ==
                                 _mainGame.matchCheck[1].values.first) {
-                              score += 100;
-                              _mainGame.matchCheck.clear();
+                              score += 100; //Each correct choice has 100 points
+                              _mainGame.matchCheck
+                                  .clear(); //To continue the command in the next clicks
                             } else {
-                              Future.delayed(Duration(milliseconds: 300), () {
+                              Future.delayed(Duration(milliseconds: 250), () {
                                 print(_mainGame.GameImage);
                                 setState(() {
                                   _mainGame.GameImage![_mainGame.matchCheck[0]
                                       .keys.first] = _mainGame.hiddenImages;
                                   _mainGame.GameImage![_mainGame.matchCheck[1]
                                       .keys.first] = _mainGame.hiddenImages;
-                                  _mainGame.matchCheck.clear();
+                                  _mainGame.matchCheck
+                                      .clear(); //To continue the command in the next clicks
                                 });
                               });
                             }
@@ -125,6 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     primary: Colors.amber,
                   ),
                   onPressed: (() {
+                    //for refresh page
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(builder: (context) => HomeScreen()),

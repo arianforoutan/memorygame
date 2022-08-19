@@ -26,8 +26,7 @@ class MainGame {
   List<Map<int, String>> matchCheck = [];
 
   void initMainGame() {
-    cards_list.shuffle();
+    cards_list.shuffle(); //make random sort list
     GameImage = List.generate(cardCount, (index) => hiddenImages);
-    GameImage!.shuffle();
   }
 }
